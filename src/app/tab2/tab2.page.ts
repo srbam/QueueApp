@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -10,7 +11,18 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
   imports: [IonicModule, ExploreContainerComponent]
 })
 export class Tab2Page {
+  page: string = '';
 
-  constructor() {}
+  consultarCep() {
+      console.log('123');
+  }
 
+  constructor(private router: Router) { 
+
+  }
+
+
+  redirectToOtherPage() {
+  this.router.navigate(['./tab3']);
+}
 }

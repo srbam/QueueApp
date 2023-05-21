@@ -50,7 +50,7 @@ app.post("/passrequest", (req, res) => {
   }
 });
 
-app.get("/nova", (req, res) => {
+app.get("/nextpassword", (req, res) => {
   fila();
   const aux = {
     p0: lista[0],

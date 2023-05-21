@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
+  
   <ion-toolbar>
     <div class="flex-container">
-      
       <header>
         <div id="menu-superior" class="center">
           <p id="senha1">Senha</p>
@@ -10,14 +10,19 @@
       <section class="content">
         <div id="menu-inferior">
           <div class="botao">
+          <a href="tab2comfirmation.page.html">
             <button class="list-element">SENHA GERAL</button>
+          </a>
           </div>
+          
           <div class="botao">
             <button class="list-element">SENHA DE EXAME</button>
           </div>
+          
           <div class="botao">
-            <button class="list-element">SENHA PRIORITARIA</button>
+            <button class="list-element" (click)="redirectToOtherPage()">SENHA PRIORITARIA</button>
           </div>
+          
           
         </div>
       </section>
@@ -27,13 +32,10 @@
 
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  
 </ion-content>
