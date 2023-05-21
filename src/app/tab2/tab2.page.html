@@ -4,19 +4,17 @@
     <div class="flex-container">
       <header>
         <div id="menu-superior" class="center">
-          <p id="senha1">Senha</p>
+          <p>Senha</p>
         </div>
       </header>
       <section class="content">
         <div id="menu-inferior">
           <div class="botao">
-          <a href="tab2comfirmation.page.html">
-            <button class="list-element">SENHA GERAL</button>
-          </a>
+            <button class="list-element" (click)="redirectToOtherPage()">SENHA GERAL</button>
           </div>
           
           <div class="botao">
-            <button class="list-element">SENHA DE EXAME</button>
+            <button class="list-element" (click)="redirectToOtherPage()">SENHA DE EXAME</button>
           </div>
           
           <div class="botao">
