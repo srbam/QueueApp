@@ -33,7 +33,8 @@ section.content {
     font-size: 100px;
     height: 100%;
     display: inline;
-    margin-left: 25%;
+    margin-left: 20%;
+    margin-right: 25%;
 }
 
 .content{
@@ -53,3 +54,19 @@ section.content {
 .botao{
     margin-top: 100px;
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .list-element {
+      font-size: 45px;
+      min-width: 450px;
+      
+    }
+    #menu-inferior {
+        margin-left: 5%;
+      }
+    
+    .botao{
+        margin-top: 50px;
+    }
+  }
