@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import axios from 'axios';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NavController } from '@ionic/angular';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-tab1',
@@ -11,88 +14,45 @@ import axios from 'axios';
   imports: [IonicModule, ExploreContainerComponent],
 })
 export class Tab1Page {
-  constructor() {}
-
+  constructor(private navCtrl: NavController, private renderer: Renderer2, private elementRef: ElementRef) {}
+  senhap0: string = '';
+  senhap1: string = '';
+  senhap2: string = '';
+  senhap3: string = '';
+  senhap4: string = '';
+  senhap5: string = '';
+  ngOnInit() {
+    this.takevalues();
+  }
   takevalues() {
-    const p0 = document.getElementById('ele0');
-    const p1 = document.getElementById('ele1');
-    const p2 = document.getElementById('ele2');
-    const p3 = document.getElementById('ele3');
-    const p4 = document.getElementById('ele4');
-    const p5 = document.getElementById('ele5');
-
-    if (p0) {
-      axios
-        .get('http://localhost:3000/nextpassword')
-        .then((response) => {
-          const data = response.data;
-          p0.textContent = data;
-          console.log(data);
+    try {
+      axios.get('http://localhost:3000/allpasswords')
+        .then(response => {
+          let element
+          this.senhap0 = response.data?.p0;
+          this.senhap1 = response.data?.p1;
+          this.senhap2 = response.data?.p2;
+          this.senhap3 = response.data?.p3;
+          this.senhap4 = response.data?.p4;
+          this.senhap5 = response.data?.p5;
+          element = this.elementRef.nativeElement.querySelector('#ele0');
+          this.renderer.setProperty(element, 'innerHTML', JSON.stringify(this.senhap0).replace(/["]/g,''));
+          element = this.elementRef.nativeElement.querySelector('#ele1');
+          this.renderer.setProperty(element, 'innerHTML', JSON.stringify(this.senhap1).replace(/["]/g,''));
+          element = this.elementRef.nativeElement.querySelector('#ele2');
+          this.renderer.setProperty(element, 'innerHTML', JSON.stringify(this.senhap2).replace(/["]/g,''));
+          element = this.elementRef.nativeElement.querySelector('#ele3');
+          this.renderer.setProperty(element, 'innerHTML', JSON.stringify(this.senhap3).replace(/["]/g,''));
+          element = this.elementRef.nativeElement.querySelector('#ele4');
+          this.renderer.setProperty(element, 'innerHTML', JSON.stringify(this.senhap4).replace(/["]/g,''));
+          element = this.elementRef.nativeElement.querySelector('#ele5');
+          this.renderer.setProperty(element, 'innerHTML', JSON.stringify(this.senhap5).replace(/["]/g,''));
         })
-        .catch((error) => {
+        .catch(error => {
           console.error(error);
         });
-    }
-
-    if (p1) {
-      axios
-        .get('http://localhost:3000/nextpassword')
-        .then((response) => {
-          const data = response.data;
-          p1.textContent = data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-    if (p2) {
-      axios
-        .get('http://localhost:3000/nextpassword')
-        .then((response) => {
-          const data = response.data;
-          p2.textContent = data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-    if (p3) {
-      axios
-        .get('http://localhost:3000/nextpassword')
-        .then((response) => {
-          const data = response.data;
-          p3.textContent = data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-    if (p4) {
-      axios
-        .get('http://localhost:3000/nextpassword')
-        .then((response) => {
-          const data = response.data;
-          p4.textContent = data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-    if (p5) {
-      axios
-        .get('http://localhost:3000/nextpassword')
-        .then((response) => {
-          const data = response.data;
-          p5.textContent = data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    } catch (error) {
+      console.error(error);
     }
 
   }

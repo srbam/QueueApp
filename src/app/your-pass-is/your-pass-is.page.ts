@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
-
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import axios from 'axios';
 @Component({
   selector: 'app-your-pass-is',
   templateUrl: './your-pass-is.page.html',
@@ -18,5 +18,5 @@ export class YourPassIsPage {
 }
 
 export class yourPassIs {
-  // Component code here
+  
 }

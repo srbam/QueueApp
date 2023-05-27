@@ -15,7 +15,7 @@ import axios from 'axios';
 export class Tab2Page {
 constructor(private navCtrl: NavController) {}
   senhaGeral(){
-      axios.post('http://localhost:3000/passrequest', {"t":"1"})
+      axios.post('http://localhost:3000/passrequest', {"t":1})
     .then((response) => {
     console.log(response.data); 
     })
@@ -24,7 +24,7 @@ constructor(private navCtrl: NavController) {}
     });
   }
   senhaPref(){
-    axios.post('http://localhost:3000/passrequest', {"t":"3"})
+    axios.post('http://localhost:3000/passrequest', {"t":2})
   .then((response) => {
   console.log(response.data); 
   })
@@ -33,7 +33,7 @@ constructor(private navCtrl: NavController) {}
   });
 }
 senhaExame(){
-  axios.post('http://localhost:3000/passrequest', {"t":"3"})
+  axios.post('http://localhost:3000/passrequest', {"t":3})
 .then((response) => {
 console.log(response.data); 
 })
