@@ -12,8 +12,28 @@ import axios from 'axios';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class YourPassIsPage {
-  constructor(private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController, private renderer: Renderer2, private elementRef: ElementRef) {}
+  senhaValor: string = '';
 
+  ngOnInit(){
+    this.senha()
+  }
+  senha(){
+    try {
+      axios.get('http://localhost:3000/passtemp')
+        .then(response => {
+          this.senhaValor = response.data;
+          const element = this.elementRef.nativeElement.querySelector('#senha-atual');
+          this.renderer.setProperty(element, 'innerHTML', this.senhaValor);
+  
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
 }
 

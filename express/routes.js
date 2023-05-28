@@ -96,6 +96,13 @@ app.post("/passrequest", (req, res) => {
 });
 app.get("/passtemp", (req, res)=>{
   try{
+    res.json(temp)
+  }catch(error){
+
+  }
+})
+app.get("/typetemp", (req, res)=>{
+  try{
     let aux;
     switch(typetemp){
       case 1: 
@@ -107,8 +114,9 @@ app.get("/passtemp", (req, res)=>{
       case 3:
         aux="Senha de Exame"
         break
+      default:
+        aux= error
     }
-    aux = aux+ ": "+ temp
     res.json(aux)
   }catch(error){
 

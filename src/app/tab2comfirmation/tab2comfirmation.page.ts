@@ -34,7 +34,7 @@ ngOnInit() {
 }
 senha(){
   try {
-    axios.get('http://localhost:3000/passtemp')
+    axios.get('http://localhost:3000/typetemp')
       .then(response => {
         this.senhaValor = response.data;
         const element = this.elementRef.nativeElement.querySelector('#senha-atual');
