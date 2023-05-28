@@ -16,11 +16,11 @@ export class Tab2comfirmationPage {
   constructor(private navCtrl: NavController, private renderer: Renderer2, private elementRef: ElementRef) {}
   senhaValor: string = '';
 
-  redirectToNextPage() {
-  this.navCtrl.navigateForward('/your-pass-is');
-}
+  
+
 redirectToPreviousPage() {
-  this.navCtrl.navigateForward('/tab2');
+  this.navCtrl.navigateForward('/tabs/tab2');
+  
 }
 
 passconfirm(){
@@ -48,6 +48,9 @@ senha(){
     console.error(error);
   }
 }
-
+redirectToNextPage() {
+  this.navCtrl.navigateForward('/your-pass-is');
+  setTimeout(() => this.redirectToPreviousPage(), 3000);
+}
 }
 

@@ -106,8 +106,8 @@ app.get("/typetemp", (req, res)=>{
     let aux;
     switch(typetemp){
       case 1: 
-      aux= "Senha Geral"
-      break
+        aux= "Senha Geral"
+        break
       case 2:
         aux="Senha Prioritária"
         break

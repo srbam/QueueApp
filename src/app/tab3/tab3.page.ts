@@ -31,4 +31,23 @@ export class Tab3Page {
         console.error(error);
       }
   }
+  ngOnInit() {
+    this.senha();
+  }
+  senha(){
+    try {
+      axios.get('http://localhost:3000/passtemp')
+        .then(response => {
+          this.senhaValor = response.data;
+          const element = this.elementRef.nativeElement.querySelector('#senha-atual');
+          this.renderer.setProperty(element, 'innerHTML', this.senhaValor);
+  
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
